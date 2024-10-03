@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcos Vinicius Assunção de Moraes - 3°B</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        div {
+            background-color: #e6e6fa;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #add8e6;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #87cefa;
+        }
+    </style>
+</head>
+<body>
+    <div id="contagemRegressiva">
+        <h2>Contagem Regressiva</h2>
+        <input type="number" id="inicioContagem" placeholder="Digite um número">
+        <button onclick="iniciarContagem()">Iniciar Contagem</button>
+        <p id="exibirContagem"></p>
+    </div>
+
+    <div id="tabuada">
+        <h2>Tabuada</h2>
+        <input type="number" id="numeroTabuada" placeholder="Digite um número">
+        <button onclick="gerarTabuada()">Gerar Tabuada</button>
+        <ul id="exibirTabuada"></ul>
+    </div>
+
+    <div id="adivinharNumero">
+        <h2>Advinhe o Número Secreto</h2>
+        <input type="number" id="entradaAdivinhacao" placeholder="Digite um número de 1 a 10">
+        <button onclick="adivinharNumero()">Advinhar</button>
+        <p id="resultadoAdivinhacao"></p>
+    </div>
+
+    <script>
+        function iniciarContagem() {
+            let numeroInicial = document.getElementById('inicioContagem').value;
+            let exibir = document.getElementById('exibirContagem');
+            exibir.innerHTML = '';
+
+            for (let i = numeroInicial; i >= 0; i--) {
+                setTimeout(() => {
+                    exibir.innerHTML += i + '<br>';
+                }, (numeroInicial - i) * 1000);
+            }
+        }
+        function gerarTabuada() {
+            let numero = document.getElementById('numeroTabuada').value;
+            let exibir = document.getElementById('exibirTabuada');
+            exibir.innerHTML = '';
+
+            for (let i = 1; i <= 10; i++) {
+                exibir.innerHTML += `<li>${numero} x ${i} = ${numero * i}</li>`;
+            }
+        }
+        let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+
+        function adivinharNumero() {
+            let adivinhar = document.getElementById('entradaAdivinhacao').value;
+            let resultado = document.getElementById('resultadoAdivinhacao');
+
+            if (adivinhar == numeroSecreto) {
+                resultado.innerHTML = 'Parabéns! Você acertou!';
+            } else if (adivinhar < numeroSecreto) {
+                resultado.innerHTML = 'O número secreto é maior!';
+            } else {
+                resultado.innerHTML = 'O número secreto é menor!';
+            }
+        }
+    </script>
+</body>
+</html>
