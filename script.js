@@ -3,10 +3,12 @@ function iniciarContagem() {
     let exibir = document.getElementById('exibirContagem');
     exibir.innerHTML = '';
 
-    for (let i = numeroInicial; i >= 0; i--) {
+    let i = numeroInicial;
+    while (i >= 0) {
         setTimeout(() => {
             exibir.innerHTML += i + '<br>';
         }, (numeroInicial - i) * 1000);
+        i--;
     }
 }
 
