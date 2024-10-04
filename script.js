@@ -1,12 +1,12 @@
 function iniciarContagem() {
-    let numeroInicial = parseInt(document.getElementById('inicioContagem').value);
+    let numeroInicial = document.getElementById('inicioContagem').value;
     let exibir = document.getElementById('exibirContagem');
     exibir.innerHTML = '';
 
-    let contador = numeroInicial;
-    while (contador >= 0) {
-        exibir.innerHTML += contador + '<br>';
-        contador--;
+    for (let i = numeroInicial; i >= 0; i--) {
+        setTimeout(() => {
+            exibir.innerHTML += i + '<br>';
+        }, (numeroInicial - i) * 1000);
     }
 }
 
