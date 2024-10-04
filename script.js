@@ -1,14 +1,13 @@
+// Contagem Regressiva
 function iniciarContagem() {
-    let numeroInicial = document.getElementById('inicioContagem').value;
+    let numeroInicial = parseInt(document.getElementById('inicioContagem').value);
     let exibir = document.getElementById('exibirContagem');
     exibir.innerHTML = '';
 
-    let i = numeroInicial;
-    while (i >= 0) {
-        setTimeout(() => {
-            exibir.innerHTML += i + '<br>';
-        }, (numeroInicial - i) * 1000);
-        i--;
+    let contador = numeroInicial;
+    while (contador >= 0) {
+        exibir.innerHTML += contador + '<br>';
+        contador--;
     }
 }
 
