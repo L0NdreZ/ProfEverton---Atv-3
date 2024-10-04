@@ -1,4 +1,3 @@
-// Contagem Regressiva
 function iniciarContagem() {
     let numeroInicial = parseInt(document.getElementById('inicioContagem').value);
     let exibir = document.getElementById('exibirContagem');
